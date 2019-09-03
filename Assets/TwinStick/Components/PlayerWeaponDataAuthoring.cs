@@ -32,7 +32,7 @@ public class PlayerWeaponDataAuthoring : MonoBehaviour, IConvertGameObjectToEnti
         if (bulletPrefab != null)
         {
             var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(bulletPrefab, World.Active);
-            dstManager.AddComponentData(prefab, new PlayerWeaponData { BulletType = prefab });
+            dstManager.AddComponentData(entity, new PlayerWeaponData { BulletType = prefab });
         }
     }
 }

@@ -8,7 +8,7 @@ using Unity.Collections;
 using Microsoft.CSharp;
 using UnityEngine;
 
-public class PlyaerWeapon : ComponentSystem
+public class PlayerWeaponSystem : ComponentSystem
 {
     private Unity.Entities.EntityQuery Component_Query;
     protected override void OnCreate()
@@ -23,7 +23,7 @@ public class PlyaerWeapon : ComponentSystem
             {
                 if (Component_QueryPlayerInput.Fire)
                 {
-                    Debug.Log(Component_QueryPlayerWeaponData.BulletType);
+                    PostUpdateCommands.Instantiate(Component_QueryPlayerWeaponData.BulletType);
                 }
             }
 
