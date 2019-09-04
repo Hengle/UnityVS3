@@ -29,6 +29,7 @@ public class PlayerMovementController : ComponentSystem
         {
             Entities.With(Component_Query).ForEach((Unity.Entities.Entity Component_QueryEntity, ref Unity.Transforms.Translation Component_QueryTranslation, ref PlayerInput Component_QueryPlayerInput) =>
             {
+                Debug.Log(("running movement controller" + Component_QueryEntity));
                 Component_QueryTranslation.Value.x += (Component_QueryPlayerInput.HorizontalInput * graphData.Movement_Multiplier);
                 Component_QueryTranslation.Value.y += 0F;
                 Component_QueryTranslation.Value.z += (Component_QueryPlayerInput.VerticalInput * graphData.Movement_Multiplier);

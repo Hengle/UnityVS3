@@ -13,7 +13,7 @@ public class PlyerInputSystem : ComponentSystem
     private Unity.Entities.EntityQuery Component_Query;
     protected override void OnCreate()
     {
-        Component_Query = GetEntityQuery(ComponentType.ReadWrite<PlayerInput>());
+        Component_Query = GetEntityQuery(ComponentType.ReadWrite<PlayerInput>(), ComponentType.ReadOnly<PlayerTag>());
     }
 
     protected override void OnUpdate()
