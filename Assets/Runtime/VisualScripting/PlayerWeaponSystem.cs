@@ -26,8 +26,9 @@ public class PlayerWeaponSystem : ComponentSystem
                 {
                     Debug.Log("attemping to spawn");
                     Unity.Entities.Entity entity = PostUpdateCommands.Instantiate(Component_QueryPlayerWeaponData.BulletType);
-                    PostUpdateCommands.AddComponent<PlayerInput>(entity, new PlayerInput{HorizontalInput = Component_QueryPlayerInput.HorizontalInput, VerticalInput = Component_QueryPlayerInput.VerticalInput, Fire = false});
+                    PostUpdateCommands.AddComponent<PlayerInput>(entity, new PlayerInput{HorizontalInput = 0F, VerticalInput = 0F, Fire = false});
                     PostUpdateCommands.SetComponent<Unity.Transforms.Translation>(entity, new Unity.Transforms.Translation{Value = new Unity.Mathematics.float3{x = Component_QueryTranslation.Value.x, y = Component_QueryTranslation.Value.y, z = Component_QueryTranslation.Value.z}});
+                    PostUpdateCommands.AddComponent<SetBulletVelocity>(entity, new SetBulletVelocity{TargetEntity = Component_QueryEntity, TargetPosition = Component_QueryTranslation.Value});
                 }
             }
 
